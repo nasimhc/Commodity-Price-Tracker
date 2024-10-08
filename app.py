@@ -26,7 +26,8 @@ def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
 # Set the correct password hash here
-CORRECT_PASSWORD_HASH = hash_password(os.getenv("PASSWORD"))
+password = os.getenv("PASSWORD")
+CORRECT_PASSWORD_HASH = hash_password(password)
 
 # Function to check the password
 def check_password():
