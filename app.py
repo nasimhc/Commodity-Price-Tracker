@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 import hashlib
+import os
 
 # Initialize database
 conn = sqlite3.connect('price_tracker.db')
@@ -25,7 +26,7 @@ def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
 # Set the correct password hash here
-CORRECT_PASSWORD_HASH = hash_password("zaman")
+CORRECT_PASSWORD_HASH = hash_password(os.getenv("PASSWORD"))
 
 # Function to check the password
 def check_password():
